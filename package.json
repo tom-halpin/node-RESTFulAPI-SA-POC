@@ -1,0 +1,29 @@
+{
+  "name": "chap3",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha --recursive",
+    "coverage": "istanbul cover .\\node_modules\\mocha\\bin\\_mocha -- -R spec",
+    "doc": ".\\node_modules\\.bin\\esdoc -c .\\esdoc.json"
+
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.8.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "esdoc": "^1.0.3",
+    "esdoc-brand-plugin": "^1.0.0",
+    "esdoc-publish-html-plugin": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
+    "mocha": "^3.5.0"
+  }
+}
