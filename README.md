@@ -36,15 +36,10 @@ Start Server
 npm start or node app.js
 
 ## API
-http://localhost:3000/v1/hello
-http://localhost:3000/v1/helloGet
-http://localhost:3000/v1/hello/Tom
 
-http://localhost:3000/v1/contacts
-http://localhost:3000/v1/contacts/+359777123456
+http://localhost:4000/v1/tickets
+http://localhost:4000/v1/tickets?instance=SM_EMEA1
 
-http://localhost:3000/v1/groups
-http://localhost:3000/v1/groups/Dev
 
 ## To Test
 
@@ -93,11 +88,11 @@ Type git add to add the files to staging
 Type git commit -m "initial commit" to commit the files
 
 Connect to github - create New Repository 
-https://github.com/tom-halpin/node-RESTFul-API-POC 
+https://github.com/tom-halpin/node-RESTFulAPI-SA-POC 
 
 Push an existing repository from the command line
 
-git remote add origin https://github.com/tom-halpin/node-RESTFul-API-POC.git
+git remote add origin https://github.com/tom-halpin/node-RESTFulAPI-SA-POC.git
 git push -u origin master
 
 need to authenticate user:tom.halpin@dxc.com pwd next team
@@ -117,7 +112,7 @@ create docker-compose.yml
 
 build containter : docker build -t restfulapi_v1 -f./.Dockerfile .
 verify image created : docker images 
-run image : docker run -it -p 1337:3000 restfulapi_v1
+run image : docker run -it -p 1337:4000 restfulapi_v1
 call API: http://192.168.99.101:1337/v1/hello 
 
 publish container to docker hub

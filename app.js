@@ -18,8 +18,8 @@ app.use(express.static('public'));
 app.use(require('./routes'));
 
 
-http.createServer(app).listen(3000, function(){
-  console.log('Express server listening on port 3000');  
+http.createServer(app).listen(4000, function(){
+  console.log('Express server listening on port 4000');  
 });
 
 /**

@@ -11,25 +11,23 @@
 
     //In a Mocha test, we describe our tests using the describe function,
     /** @test {contacts} */
-    describe('API endpoint /v1/contacts', function() {  
+    describe('API endpoint /v1/tickets', function() {  
       this.timeout(5000); // How long to wait for a response (ms)
      
       //before and after blocks can be used to setup our tests before any testing begins, and cleanup after all tests have been completed.
       before(function() {
-     
-      });
+           });
      
       after(function() {
-     
-      });
+           });
      
       //individual test cases are implemented using the it function, which is where we insert our assertions.
       
-      // GET - List all contacts
-      /** @test {contacts#list} */
-      it('should return all contacts', function() {
+      // GET - List all tickets
+      /** @test {tickets#list} */
+      it('should return all tickets', function() {
         return chai.request(app)
-          .get('/v1/contacts')
+          .get('/v1/tickets')
           .then(function(res) {
             expect(res).to.have.status(200);
             expect(res).to.be.json;
@@ -37,162 +35,39 @@
             expect(res.body.results).to.be.an('object');;
             expect(res.body.results.result).to.be.an('array');
             expect(res.body.results.result.length).to.equal(2);
-            expect(res.body.results.result[0].firstname).to.equal('Joe');
-            expect(res.body.results.result[1].firstname).to.equal('John');            
+            expect(res.body.results.result[0].instance).to.equal('SM_APJ_NWI');
+            expect(res.body.results.result[1].instance).to.equal('SM_EMEA1');            
           });
       });
     });
 
-    describe('API endpoint /v1/contacts', function() {  
+    describe('API endpoint /v1/tickets', function() {  
       this.timeout(5000); // How long to wait for a response (ms)
      
       //before and after blocks can be used to setup our tests before any testing begins, and cleanup after all tests have been completed.
       before(function() {
-     
-      });
+           });
      
       after(function() {
-     
-      });
+           });
      
       //individual test cases are implemented using the it function, which is where we insert our assertions.
       
-      // GET - List one specific contact
+      // GET - List one specific instance
 
-      it('should return a specific contact', function() {
+      it('should return a specific instance', function() {
         return chai.request(app)
-          .get('/v1/contacts?firstname=joe')
+          .get('/v1/tickets?instance=SM_EMEA1')
           .then(function(res) {
             expect(res).to.have.status(200);
             expect(res).to.be.json;
             expect(res.body).to.be.an('object');
-            expect(res.body.results).to.be.an('object');;
-            expect(res.body.results.firstname).to.equal('Joe');            
+            expect(res.body.results).to.be.an('object');
+            expect(res.body.results.company[0].name).to.equal('HPE'); 
+            expect(res.body.results.company[0].tickets[0].id).to.equal('E-IM003256985');           
           });
       });
     });
 
-    describe('API endpoint /v1/contacts:number', function() {  
-      this.timeout(5000); // How long to wait for a response (ms)
-     
-      //before and after blocks can be used to setup our tests before any testing begins, and cleanup after all tests have been completed.
-      before(function() {
-     
-      });
-     
-      after(function() {
-     
-      });
-     
-      //individual test cases are implemented using the it function, which is where we insert our assertions.
-      
-      // GET - List one specific contact
-      it('should return a specific contact', function() {
-        return chai.request(app)
-          .get('/V1/contacts/+359777123456')
-          .then(function(res) {
-            expect(res).to.have.status(200);
-            expect(res).to.be.json;
-            expect(res.body).to.be.an('object');
-            expect(res.body.results).to.be.an('object');;
-            expect(res.body.results.firstname).to.equal('Joe');            
-          });
-      });
-    });
-
-    describe('API endpoint /v1/groups', function() {  
-      this.timeout(5000); // How long to wait for a response (ms)
-     
-      before(function() {
-     
-      });
-     
-      after(function() {
-     
-      });
-
-      // GET - List all groups
-      it('should return members of all groups', function() {
-        return chai.request(app)
-          .get('/v1/groups')
-          .then(function(res) {
-            expect(res).to.have.status(200);
-            expect(res).to.be.json;
-            expect(res.body).to.be.an('object');
-            expect(res.body.results).to.be.an('array').that.includes('Dev', 'Family');
-          });
-      });
-     
-      // GET - Invalid path
-      it('should return Not Found', function() {
-        return chai.request(app)
-          .get('/INVALID_PATH')
-          .then(function(res) {
-            throw new Error('Path exists!');
-          })
-          .catch(function(err) {
-            expect(err).to.have.status(404);
-          });
-      });
-   });
-
-   describe('API endpoint /v1/groups:name', function() {  
-      this.timeout(5000); // How long to wait for a response (ms)
-     
-      //before and after blocks can be used to setup our tests before any testing begins, and cleanup after all tests have been completed.
-      before(function() {
-     
-      });
-     
-      after(function() {
-     
-      });
-     
-      //individual test cases are implemented using the it function, which is where we insert our assertions.
-      
-      // GET - List one specific contact
-
-      it('should return members of a specific group', function() {
-        return chai.request(app)
-          .get('/V1/groups/Family')
-          .then(function(res) {
-            expect(res).to.have.status(200);
-            expect(res).to.be.json;
-            expect(res.body).to.be.an('object');
-            expect(res.body.results).to.be.an('array');           
-          });
-      });
-    });
-     /*
-      // POST - Add new color
-      it('should add new color', function() {
-        return chai.request(app)
-          .post('/colors')
-          .send({
-            color: 'YELLOW'
-          })
-          .then(function(res) {
-            expect(res).to.have.status(201);
-            expect(res).to.be.json;
-            expect(res.body).to.be.an('object');
-            expect(res.body.results).to.be.an('array').that.includes(
-              'YELLOW');
-          });
-      });
-     
-      // POST - Bad Request
-      it('should return Bad Request', function() {
-        return chai.request(app)
-          .post('/v1/groups')
-          .type('form')
-          .send({
-            color: 'Beatles'
-          })
-          .then(function(res) {
-            throw new Error('Invalid content type!');
-          })
-          .catch(function(err) {
-            expect(err).to.have.status(400);
-          });
-      });*/
+    
  

@@ -16,7 +16,7 @@
         "logo": "./logo.png",
         "title": "My Library",
         "description": "this is awesome library",
-        "repository": "https://github.com/tom-halpin/node-RESTFul-API-POC",
+        "repository": "https://github.com/tom-halpin/node-RESTFulAPI-SA-POC",
         "site": "https://www.dxc.technology/",
         "author": "https://twitter.com/foo",
         "image": "http://my-library.org/logo.png"
