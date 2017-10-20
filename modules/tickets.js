@@ -51,11 +51,11 @@ class tickets{
 		
 		for (var i = 0; i < result.length; i++)
 		{
-			var ticket = result[i];
+			var data = result[i];
 			/* istanbul ignore else */
-			if (ticket[arg] === value)
+			if (data[arg] === value)
 			{
-				ret = ticket;
+				ret = data;
 				break;
 			}
 		}
