@@ -124,13 +124,17 @@ view repo on docker hub: https://hub.docker.com/u/tomhalpin/
 
 ## Jenkins
 
+get the active Jenkins container from https://hub.docker.com/r/jenkins/jenkins/
+
+docker pull jenkins/jenkins
+
 run jenkins from a container mapped to local folder
 
-docker run --name myjenkins -p 8080:8080 -p 50000:50000 -v //c/Users/halpint/Downloads/jenkins/:/var/jenkins_home jenkins
+docker run --name myjenkins -p 8080:8080 -p 50000:50000 -v //c/Users/halpint/Downloads/jenkins/:/var/jenkins_home jenkins/jenkins
 
 open jenkins
 
-http://192.168.99.101:8080
+http://192.168.99.100:8080
 
 admin and password
 
@@ -138,4 +142,9 @@ go to update center : http://192.168.99.101:8080/updateCenter/
 
 download and install nodejs Jenkins plugin https://plugins.jenkins.io/nodejs
 
-force jenkins restart : http://192.168.99.101:8080/restart
+see nodejs.hpiin Jenkins folder
+
+if needed force jenkins restart : http://192.168.99.101:8080/restart
+
+then follow instructions at https://wiki.jenkins.io/display/JENKINS/NodeJS+Plugin
+to enable node and use in a Jenkins project
